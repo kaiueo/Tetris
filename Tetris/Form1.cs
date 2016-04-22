@@ -16,5 +16,20 @@ namespace Tetris
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            BrickFactory bf = new BrickFactory();
+            Brick a = bf.getBricks(0);
+           for(int i = 0; i < 4; i++)
+            {
+                for(int j = 0; j < 4; j++)
+                {
+                    Console.Write("{0}, ", a.CurrentShape[i][j]);
+                }
+                Console.WriteLine();
+            }
+        }
     }
 }
