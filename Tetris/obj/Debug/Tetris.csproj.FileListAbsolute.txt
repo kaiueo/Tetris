@@ -1,0 +1,2 @@
+c:\users\张克\documents\visual studio 2015\Projects\Tetris\Tetris\bin\Debug\Tetris.exe.config
+C:\Users\张克\Source\Repos\Tetris\Tetris\bin\Debug\Tetris.exe.config
