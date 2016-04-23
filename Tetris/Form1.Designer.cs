@@ -37,39 +37,43 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.nextPanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // wallPanel
             // 
             this.wallPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.wallPanel.Location = new System.Drawing.Point(12, 12);
+            this.wallPanel.Location = new System.Drawing.Point(12, 27);
             this.wallPanel.Name = "wallPanel";
             this.wallPanel.Size = new System.Drawing.Size(280, 400);
             this.wallPanel.TabIndex = 0;
             // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(298, 231);
+            this.startButton.Location = new System.Drawing.Point(305, 231);
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(49, 23);
+            this.startButton.Size = new System.Drawing.Size(65, 23);
             this.startButton.TabIndex = 1;
-            this.startButton.Text = "开始";
+            this.startButton.Text = "开始游戏";
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // endButton
             // 
-            this.endButton.Location = new System.Drawing.Point(300, 288);
+            this.endButton.Location = new System.Drawing.Point(305, 288);
             this.endButton.Name = "endButton";
-            this.endButton.Size = new System.Drawing.Size(49, 23);
+            this.endButton.Size = new System.Drawing.Size(63, 23);
             this.endButton.TabIndex = 2;
-            this.endButton.Text = "结束";
+            this.endButton.Text = "重新开始";
             this.endButton.UseVisualStyleBackColor = true;
+            this.endButton.Click += new System.EventHandler(this.endButton_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(296, 151);
+            this.label1.Location = new System.Drawing.Point(303, 160);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 3;
@@ -78,7 +82,7 @@
             // scoreLabel
             // 
             this.scoreLabel.AutoSize = true;
-            this.scoreLabel.Location = new System.Drawing.Point(298, 172);
+            this.scoreLabel.Location = new System.Drawing.Point(303, 183);
             this.scoreLabel.Name = "scoreLabel";
             this.scoreLabel.Size = new System.Drawing.Size(11, 12);
             this.scoreLabel.TabIndex = 4;
@@ -91,7 +95,7 @@
             // 
             // nextPanel
             // 
-            this.nextPanel.Location = new System.Drawing.Point(303, 40);
+            this.nextPanel.Location = new System.Drawing.Point(305, 56);
             this.nextPanel.Name = "nextPanel";
             this.nextPanel.Size = new System.Drawing.Size(80, 80);
             this.nextPanel.TabIndex = 5;
@@ -99,17 +103,34 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(303, 13);
+            this.label2.Location = new System.Drawing.Point(303, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 6;
             this.label2.Text = "下一个";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.关于ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(405, 25);
+            this.menuStrip1.TabIndex = 7;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 关于ToolStripMenuItem
+            // 
+            this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
+            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.关于ToolStripMenuItem.Text = "关于";
+            this.关于ToolStripMenuItem.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(395, 423);
+            this.ClientSize = new System.Drawing.Size(405, 460);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.nextPanel);
             this.Controls.Add(this.scoreLabel);
@@ -117,11 +138,15 @@
             this.Controls.Add(this.endButton);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.wallPanel);
+            this.Controls.Add(this.menuStrip1);
             this.KeyPreview = true;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "俄罗斯方块";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,6 +162,8 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Panel nextPanel;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
     }
 }
 

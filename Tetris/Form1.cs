@@ -15,6 +15,7 @@ namespace Tetris
         private Image wallImage;
         private Image nextImage;
         private Game game;
+        private int state = 0;
         public Form1()
         {
             InitializeComponent();
@@ -55,11 +56,11 @@ namespace Tetris
                 }
             }
 
-            for(int i = 0; i < 4; i++)
+            for (int i = 0; i < 4; i++)
             {
-                for(int j = 0; j < 4; j++)
+                for (int j = 0; j < 4; j++)
                 {
-                    if(game.nextBrick.CurrentShape[i][j] == 1)
+                    if (game.nextBrick.CurrentShape[i][j] == 1)
                     {
                         ng.FillRectangle(new SolidBrush(Color.Blue), i * 20, j * 20, 20, 20);
                         ng.DrawRectangle(Pens.Black, i * 20, j * 20, 20, 20);
@@ -90,7 +91,7 @@ namespace Tetris
             timer.Interval = 1000;
             game.beginDrop();
             this.Focus();
-
+            this.state = 1;
 
 
         }
@@ -103,7 +104,24 @@ namespace Tetris
 
         private void startButton_Click(object sender, EventArgs e)
         {
-            start();
+            if(state == 0)
+            {
+                start();
+                this.startButton.Text = "暂停";
+            }
+            else if (state == 1)
+            {
+                this.startButton.Text = "继续游戏";
+                timer.Stop();
+                this.state = 2;
+            }
+            else if (state == 2)
+            {
+                this.startButton.Text = "暂停游戏";
+                timer.Start();
+                this.state = 1;
+
+            }
         }
 
         public void message(String s)
@@ -166,6 +184,21 @@ namespace Tetris
         private void scoreLabel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void endButton_Click(object sender, EventArgs e)
+        {
+            game = new Game(timer, this);
+            start();
+            this.startButton.Text = "暂停游戏";
+            this.state = 1;
+            this.scoreLabel.Text = "0";
+
+        }
+
+        private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("张克\n14211134");
         }
     }
 }
