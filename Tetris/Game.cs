@@ -12,7 +12,8 @@ namespace Tetris
     {
         private Wall wall = new Wall();
         public Brick currentBrick;
-        private BrickFactory bf;
+        public Brick nextBrick;
+        public BrickFactory bf;
         private int currentX;
         private int currentY;
         private int score;
@@ -28,6 +29,7 @@ namespace Tetris
             bf = new BrickFactory();
             form = f;
             currentBrick = new Brick();
+            nextBrick = new Brick();
         }
 
         internal Wall Wall
@@ -89,7 +91,7 @@ namespace Tetris
             currentBrick.changeDirection();
         }
 
-        private bool downable()
+        public bool downable()
         {
             for (int i = 0; i < 4; i++)
             {
@@ -115,7 +117,7 @@ namespace Tetris
             return true;
         }
 
-        private bool lefeable()
+        public bool lefeable()
         {
             for (int i = 0; i < 4; i++)
             {
@@ -137,7 +139,7 @@ namespace Tetris
             return true;
         }
 
-        private bool rightable()
+        public bool rightable()
         {
             for (int i = 0; i < 4; i++)
             {
@@ -145,7 +147,7 @@ namespace Tetris
                 {
                     if(currentBrick.CurrentShape[i][j] == 1)
                     {
-                        if (j + CurrentX + 1 > 14)
+                        if (j + CurrentX + 1 >= 14)
                         {
                             return false;
                         }
@@ -226,9 +228,11 @@ namespace Tetris
 
         public void beginDrop()
         {
+            currentBrick = new Brick(nextBrick.Shapes, nextBrick.State);
+
             int i = random.Next(0, 4);
             int j = random.Next(0, 4);
-            currentBrick = bf.getBricks(i,j);
+            nextBrick = bf.getBricks(i, j);
             CurrentX = 0;
             currentY = 0;
             timer.Start();

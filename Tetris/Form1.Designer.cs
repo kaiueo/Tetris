@@ -35,18 +35,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.scoreLabel = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.nextPanel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // wallPanel
             // 
+            this.wallPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.wallPanel.Location = new System.Drawing.Point(12, 12);
             this.wallPanel.Name = "wallPanel";
-            this.wallPanel.Size = new System.Drawing.Size(291, 529);
+            this.wallPanel.Size = new System.Drawing.Size(280, 400);
             this.wallPanel.TabIndex = 0;
             // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(312, 192);
+            this.startButton.Location = new System.Drawing.Point(298, 231);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(49, 23);
             this.startButton.TabIndex = 1;
@@ -56,7 +59,7 @@
             // 
             // endButton
             // 
-            this.endButton.Location = new System.Drawing.Point(312, 308);
+            this.endButton.Location = new System.Drawing.Point(300, 288);
             this.endButton.Name = "endButton";
             this.endButton.Size = new System.Drawing.Size(49, 23);
             this.endButton.TabIndex = 2;
@@ -66,40 +69,59 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(309, 32);
+            this.label1.Location = new System.Drawing.Point(296, 151);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 3;
             this.label1.Text = "分数：";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // scoreLabel
             // 
             this.scoreLabel.AutoSize = true;
-            this.scoreLabel.Location = new System.Drawing.Point(310, 60);
+            this.scoreLabel.Location = new System.Drawing.Point(298, 172);
             this.scoreLabel.Name = "scoreLabel";
             this.scoreLabel.Size = new System.Drawing.Size(11, 12);
             this.scoreLabel.TabIndex = 4;
             this.scoreLabel.Text = "0";
-            this.scoreLabel.Click += new System.EventHandler(this.label2_Click);
+            this.scoreLabel.Click += new System.EventHandler(this.scoreLabel_Click);
             // 
             // timer
             // 
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // nextPanel
+            // 
+            this.nextPanel.Location = new System.Drawing.Point(303, 40);
+            this.nextPanel.Name = "nextPanel";
+            this.nextPanel.Size = new System.Drawing.Size(80, 80);
+            this.nextPanel.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(303, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "下一个";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(367, 564);
+            this.ClientSize = new System.Drawing.Size(395, 423);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.nextPanel);
             this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.endButton);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.wallPanel);
+            this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,6 +135,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label scoreLabel;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Panel nextPanel;
+        private System.Windows.Forms.Label label2;
     }
 }
 
