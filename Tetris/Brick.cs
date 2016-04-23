@@ -68,5 +68,24 @@ namespace Tetris
             this.State = s;
             this.CurrentShape = Shapes[State];
         }
+
+        public Brick()
+        {
+            this.shapes = new int[4][][];
+            for(int i = 0; i < 4; i++)
+            {
+                this.shapes[i] = new int[4][];
+                for(int j = 0; j < 4; j++)
+                {
+                    this.shapes[i][j] = new int[4];
+                    for(int k = 0; k < 4; k++)
+                    {
+                        this.shapes[i][j][k] = 0;
+                    }
+                }
+            }
+            this.state = 0;
+            this.currentShape = Shapes[State];
+        }
     }
 }

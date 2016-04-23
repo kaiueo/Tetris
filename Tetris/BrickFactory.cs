@@ -112,7 +112,7 @@ namespace Tetris
                                            {0,0,0,0}
                                        }
                                    }};
-        public Brick getBricks(int shape)
+        public Brick getBricks(int shape, int state)
         {
             int[][][] bricks = new int[4][][];
             for(int i = 0; i < 4; i++)
@@ -134,8 +134,7 @@ namespace Tetris
                     }
                 }
             }
-            Random r = new Random();
-            Brick aBrick = new Brick(bricks, r.Next(0, 4));
+            Brick aBrick = new Brick(bricks, state);
             return aBrick;
         }
 
