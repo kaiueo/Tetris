@@ -233,7 +233,7 @@ namespace Tetris
             int i = random.Next(0, 4);
             int j = random.Next(0, 4);
             nextBrick = bf.getBricks(i, j);
-            CurrentX = 0;
+            CurrentX = 6;
             currentY = 0;
             timer.Start();
 
